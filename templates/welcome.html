@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome</title>
+    <link href="/static/my.css" rel="stylesheet">
+</head>
+<body>
+<form method="POST" action="">
+    {{ form.csrf_token }}
+    <div>
+        {{ form.name.label }} {{ form.name(size=20) }}
+    </div>
+    <div>
+        {{ form.email.label }} {{ form.email }}
+    </div>
+    <input type="submit" value="Go">
+</form>
+{% if name %}
+    Bonjour {{ name }},
+    Maintenant je connais ton email ({{ email }}), donne-moi de l'argent ou sinon...
+{% endif %}
+
+{% for field, errors in form.errors.items() %}
+<div class="alert alert-error">
+    {{ form[field].label }}: {{ ', '.join(errors) }}
+</div>
+{% endfor %}
+</body>
+</html>

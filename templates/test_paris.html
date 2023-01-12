@@ -1,0 +1,31 @@
+{% extends "bootstrap/base.html" %}
+{% import 'navbar_macro.html' as navbar %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block navbar %}
+    {{ navbar.render("paris") }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div style="margin-bottom: 50px">
+            {{ wtf.quick_form(file_form) }}
+            {% if occurrence_file %}
+                <div class="alert alert-success" role="alert">
+                    Paris a été détecté {{ occurrence_file }} fois dans le texte
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            {{ wtf.quick_form(text_form) }}
+            {% if occurrence_text %}
+                <div class="alert alert-success" role="alert">
+                    Paris a été détecté {{ occurrence_text }} fois dans le fichier
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "bootstrap/base.html" %}
+{% import 'navbar_macro.html' as navbar %}
+{% import  'bootstrap/wtf.html' as wtf %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block navbar %}
+    {{ navbar.render("home") }}
+{% endblock %}
+
+{% block content %}
+    <div class="flask-container">
+        <div class="jumbotron">
+            <h1>Bienvenu {% if name %}{{ name }}, {% endif %} dans la formation GRETA !</h1>
+            <p>Vous aller aimer...</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        </div>
+
+        {{ wtf.quick_form(form) }}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "navbar.html" as navbar %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block navbar %}
+    {{ navbar.render("home") }}
+{% endblock %}
+
+{% block content %}
+    {{ wtf.quick_form(form) }}
+{% endblock %}

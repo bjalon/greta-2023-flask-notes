@@ -1,0 +1,26 @@
+{% macro render(current_page) %}
+     <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                        data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img
+                        src="https://gretaformation.ac-orleans-tours.fr/sites/all/themes/themes/adscom/images/logo.jpg"
+                        alt="greta" height="36px"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a class="{{'active' if not current_page == "home" }}" href="/test_bootstrap">Home</a></li>
+                    <li><a class="{{'active' if not current_page == "paris" }}" href="/test_paris">Paris</a></li>
+                    <li><a class="{{'active' if not current_page == "apropos" }}"href="/test_apropos">A Propos</a></li>
+                    <li><a class="{{'active' if not current_page == "reference" }}"href="/test_reference">Reference</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

@@ -1,0 +1,11 @@
+.alert-error {
+    color: green
+}
+
+
+@media (min-width:1500px) {
+    .flask-container {
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NPL Killer</title>
+</head>
+<body>
+
+<form method="POST">
+    {{ form.csrf_token }}
+    {{ form.text.label }} {{ form.text }}
+    {{ form.submit }}
+</form>
+
+{% for field, errors in form.errors.items() %}
+    <div class="alert alert-error">
+        le champ {{ form[field].label }} a un problème : {{ ', '.join(errors) }}
+    </div>
+{% endfor %}
+
+{% if paris_count %}
+    <h1>Paris a été détecté {{ paris_count }} fois</h1>
+{% endif %}
+</body>
+</html>
